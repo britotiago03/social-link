@@ -24,3 +24,26 @@ export function InputFieldPassword({ inputFieldLabel }:{ inputFieldLabel: string
         </div>
     );
 }
+
+export function Interest({ interestName }: { interestName: string }) {
+    return (
+        <div className="bg-[#FF986A] px-2 rounded-full">
+            <p className="text-xs">{interestName}</p>
+        </div>
+    );
+}
+
+export function Carousel({ title}: { title: string }) {
+    return (
+        <section className="flex flex-col gap-3 items-start w-full md:w-1/3">
+            <h1 className="text-2xl"><b>{title}</b></h1>
+            <div className="flex gap-3 overflow-x-auto
+                    overflow-y-hidden scroll-smooth snap-x snap-mandatory w-full">
+                {[...Array(6)].map((_, i) => (
+                    <div key={i} className="bg-[#D9D9D9] w-48 h-60
+                        flex-shrink-0 snap-start"></div>
+                ))}
+            </div>
+        </section>
+    );
+}

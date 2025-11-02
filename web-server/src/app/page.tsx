@@ -19,11 +19,11 @@ export default function Home() {
 
         </div>
         <div className="flex flex-col gap-1">
-          <Link href="/">
+          <Link href="/" className="p-3">
             <button className="text-xl cursor-pointer"><b>LOGIN</b></button>
           </Link>
 
-          <Link href="/">
+          <Link href={"/forgot-password"}>
             <button className="cursor-pointer
             font-extralight">Forgot Password?</button>
           </Link>

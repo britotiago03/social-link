@@ -31,6 +31,8 @@ export default function Signup() {
                               inputFieldLabel="FIRST NAME"/>
               <InputFieldText inputFieldId="lastname"
                               inputFieldLabel="LAST NAME"/>
+              <InputFieldText inputFieldId="username"
+                              inputFieldLabel="USERNAME"/>
 
               <div className="flex flex-col items-start gap-1">
                 <label htmlFor="birthday" className="px-3">
@@ -107,7 +109,7 @@ export default function Signup() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <Link href="/">
+            <Link href="/" className="p-3">
               <button className="text-xl cursor-pointer"><b>SIGN UP</b></button>
             </Link>
           </div>
