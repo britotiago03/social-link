@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { roboto, imprima } from "@/app/ui/fonts";
+import { InputFieldText, InputFieldPassword } from "@/app/ui/components";
 
 export default function Home() {
   return (
@@ -11,21 +12,9 @@ export default function Home() {
         text-5xl`}>Social Link</h1>
 
           <form className="flex flex-col gap-10">
-            <div className="flex flex-col items-start gap-1">
-              <label htmlFor="username" className="px-3"><b>USERNAME</b></label>
-              <input id="username" type="text"
-                     className="bg-[#D9D9D9] rounded-2xl p-3 w-64
-                     inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)]"
-              />
-            </div>
-
-            <div className="flex flex-col items-start gap-1">
-              <label htmlFor="password" className="px-3"><b>PASSWORD</b></label>
-              <input id="password" type="password"
-                     className="bg-[#D9D9D9] rounded-2xl p-3 w-64
-                     inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)]"
-              />
-            </div>
+            <InputFieldText inputFieldId="username" inputFieldLabel="USERNAME"
+            />
+            <InputFieldPassword inputFieldLabel="PASSWORD" />
           </form>
 
         </div>
@@ -41,7 +30,9 @@ export default function Home() {
         </div>
         <div className="flex gap-1">
           <label><b>Don't have an account?</b></label>
-          <button className="cursor-pointer font-extralight">Sign up</button>
+          <Link href={"/signup"}>
+            <button className="cursor-pointer font-extralight">Sign up</button>
+          </Link>
         </div>
       </main>
     </div>
