@@ -12,11 +12,11 @@ export default function MatchPage() {
                 <main className="flex flex-col
                 items-center py-15 px-5 gap-7 text-[#050022] text-center
                 w-full md:w-1/3">
-                    <ProfilePicture width="w-32" />
+                    <ProfilePicture width="w-32" imageSrc="/ingrid.jpg" />
                     <div className="flex flex-col gap-20">
                         <div className="flex flex-col gap-7">
                             <div className="text-4xl">
-                                <h1>NAME</h1>
+                                <h1>Ingrid Johansen</h1>
                             </div>
                             {/* Interests Section */}
                             <div className="flex flex-col gap-5 w-full text-2xl">

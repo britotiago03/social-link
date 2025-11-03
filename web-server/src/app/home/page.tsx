@@ -20,14 +20,15 @@ export default function HomePage() {
                         <div>
                             {/* Profile Picture */}
                             <Link href={"/home/profile"}>
-                                <ProfilePicture width="w-24"/>
+                                <ProfilePicture width="w-32"
+                                                imageSrc="/jonas2.jpg"/>
                             </Link>
                         </div>
 
                         {/* Description Section */}
                         <div className="flex flex-col gap-3 w-64">
                             {/* Name Section */}
-                            <ProfileName textSize="text-base"/>
+                            <ProfileName textSize="text-xl"/>
                             <Interests textSize="text-xs" />
                             <div className="flex justify-end">
                                 <Link href={"/home/chats"}>

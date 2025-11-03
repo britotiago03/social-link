@@ -72,7 +72,7 @@ export function BottomNavBar() {
                     alt="Match Icon"
                 />
             </Link>
-            <Link href={"/"}>
+            <Link href={"/home/create-activity"}>
                 <Image
                     src="/create_activity_icon.svg"
                     width={44}
@@ -100,19 +100,24 @@ export function BottomNavBar() {
     );
 }
 
-export function ProfilePicture({width}: { width: string }) {
+export function ProfilePicture({width, imageSrc}: { width: string,
+    imageSrc: string }) {
+    let verifiedSize = "0";
+    if (width === "w-40") {
+        verifiedSize = "2"
+    }
+
     return (
-        <div className="relative
-                        bg-[#6E0061] p-5 rounded-full">
-            <Image className={`${width}`}
-                   src="/profile_icon.svg"
-                   width={91}
-                   height={91}
-                   alt="Profile Icon"
+        <div className="relative">
+            <Image className={`${width} rounded-full`}
+                   src={imageSrc}
+                   width={1080}
+                   height={1080}
+                   alt="Picture of Jonas"
             />
             {/* Verified Icon */}
-            <div className="absolute p-4 bottom-1 left-1
-                            bg-[#FFB300] rounded-full">
+            <div className={`absolute p-4 bottom-${verifiedSize} left-${verifiedSize}
+                            bg-[#FFB300] rounded-full`}>
                 <Image className="absolute bottom-2 left-2"
                        src="/verified_icon.svg"
                        width={17}
@@ -126,9 +131,9 @@ export function ProfilePicture({width}: { width: string }) {
 
 export function ProfileName({textSize}: { textSize: string }) {
     return (
-        <div className={`flex gap-3 border-b-1 font-bold ${textSize}`}>
-            <h1>FIRSTNAME</h1>
-            <h1>LASTNAME</h1>
+        <div className={`flex justify-center w-full
+        font-bold border-b-1 ${textSize}`}>
+            <h1>Jonas Lundberg</h1>
         </div>
     );
 }
