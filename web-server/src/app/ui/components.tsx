@@ -181,3 +181,113 @@ export function Messages() {
         </div>
     );
 }
+
+function ChatMessage({ message, isSender, isReplying }:
+                                { message: string, isSender: boolean,
+                                isReplying: boolean}) {
+    let sendMessage = "justify-start";
+    let messageColor = "bg-[#FF986A]";
+    let marginTop = "mt-1";
+    if (isSender) {
+        sendMessage = "justify-end";
+        messageColor = "bg-[#FB4E00]";
+    }
+    if (isReplying) {
+        marginTop = "mt-3";
+    }
+
+    return (
+        <div className={`w-full ${marginTop}`}>
+            <div className={`flex ${sendMessage} w-full`}>
+                <div className={`inline-block px-3 p-2 ${messageColor}
+                            text-sm font-normal text-left rounded-2xl max-w-3/4`}>
+                    <p>{message}</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function ChatConversation() {
+    return (
+        <div className="flex flex-col w-full">
+            <ChatMessage
+                message="Hey, how have you been?"
+                isSender={false}
+                isReplying={false}
+            />
+            <ChatMessage
+                message="I've been good! Just keeping busy with
+                            work. You?"
+                isSender={true}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="Same here, trying to stay productive."
+                isSender={false}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="Have you checked out any of the events on the
+                app yet?"
+                isSender={false}
+                isReplying={false}
+            />
+            <ChatMessage
+                message="Yeah, I saw a few — there's that outdoor movie
+                night this weekend. Looked kind of fun."
+                isSender={true}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="Oh yeah, I saw that too! I was thinking about
+                going, but not sure if it'll be too crowded."
+                isSender={false}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="True. I like smaller things better."
+                isSender={true}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="What if we make our own event instead? Maybe
+                something chill — like a picnic or a small hike?"
+                isSender={true}
+                isReplying={false}
+            />
+            <ChatMessage
+                message="I like that idea! A hike sounds perfect actually."
+                isSender={false}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="We could post it as a public event and see if
+                others want to join."
+                isSender={false}
+                isReplying={false}
+            />
+            <ChatMessage
+                message="Yeah, let's do that. I can make the event if you want."
+                isSender={true}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="Sure, go for it. I'll help with the details."
+                isSender={false}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="Cool, I'll set it up later tonight and send you
+                the link."
+                isSender={true}
+                isReplying={true}
+            />
+            <ChatMessage
+                message="Perfect. Looking forward to it!"
+                isSender={false}
+                isReplying={true}
+            />
+        </div>
+    );
+}

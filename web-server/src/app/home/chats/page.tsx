@@ -2,6 +2,7 @@
 
 import { TopNavBar, Messages, BottomNavBar } from "@/app/ui/components";
 import {roboto} from "@/app/ui/fonts";
+import Link from "next/link";
 
 export default function ChatsPage() {
     return (
@@ -18,7 +19,9 @@ export default function ChatsPage() {
                             <h1>Messages</h1>
                         </div>
                         {/* Messages Container */}
-                        <Messages />
+                        <Link className="w-full" href={"/home/chats/chat"}>
+                            <Messages />
+                        </Link>
                     </div>
                 </main>
             </div>
