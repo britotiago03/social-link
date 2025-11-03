@@ -403,7 +403,7 @@ export function ActivityDialog({setActivityAction, hasLiked, setLikeAction,
                         <Interest interestName="Sports"/>
                     </div>
                 </div>
-                <div className="flex gap-1 h-full pl-5">
+                <div className="flex h-full pl-5">
                     <div className="flex items-center gap-3 w-full">
                         <Image className={`w-1/6 rounded-full`}
                                src="/jonas2.jpg"
@@ -415,32 +415,34 @@ export function ActivityDialog({setActivityAction, hasLiked, setLikeAction,
                             <h1>Jonas Lund</h1>
                         </div>
                     </div>
-                    {
-                        hasLiked ?
-                            <div onClick={() => unlike()}
-                                 className="flex cursor-pointer">
-                                <Image
-                                    src="/map/liked_icon.svg"
-                                    width={33}
-                                    height={30}
-                                    alt="Liked Icon"
-                                />
-                            </div>
-                            :
-                            <div onClick={() =>  like()}
-                                 className="flex cursor-pointer">
-                                <Image
-                                    src="/create-activity/favorite_icon.svg"
-                                    width={33}
-                                    height={30}
-                                    alt="Liked Icon"
-                                />
-                            </div>
-                    }
-                    <div onClick={() => openLikesAction()}
-                        className="flex items-center text-[#FF986A] pr-5
+                    <div className="flex gap-1 items-center">
+                        {
+                            hasLiked ?
+                                <div onClick={() => unlike()}
+                                     className="flex cursor-pointer h-full">
+                                    <Image
+                                        src="/map/liked_icon.svg"
+                                        width={33}
+                                        height={30}
+                                        alt="Liked Icon"
+                                    />
+                                </div>
+                                :
+                                <div onClick={() =>  like()}
+                                     className="flex cursor-pointer h-full">
+                                    <Image
+                                        src="/create-activity/favorite_icon.svg"
+                                        width={33}
+                                        height={30}
+                                        alt="Liked Icon"
+                                    />
+                                </div>
+                        }
+                        <div onClick={() => openLikesAction()}
+                             className="flex items-center text-[#FF986A] h-full pr-5
                     cursor-pointer">
-                        <h1>{likes}</h1>
+                            <h1>{likes}</h1>
+                        </div>
                     </div>
                 </div>
             </div>
