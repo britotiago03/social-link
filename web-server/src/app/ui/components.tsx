@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import {Dispatch, SetStateAction} from "react";
+import {Interest} from "@/app/ui/interest-components";
 
-export function InputFieldText({ inputFieldId, inputFieldLabel }:
-                               { inputFieldId: string, inputFieldLabel: string }) {
+export function InputFieldText({inputFieldId, inputFieldLabel}:
+                                   { inputFieldId: string, inputFieldLabel: string }) {
     return (
         <div className="flex flex-col items-start gap-1 font-bold">
             <label htmlFor={inputFieldId} className="px-3">
@@ -17,7 +19,7 @@ export function InputFieldText({ inputFieldId, inputFieldLabel }:
     );
 }
 
-export function InputFieldPassword({ inputFieldLabel }:{ inputFieldLabel: string }) {
+export function InputFieldPassword({inputFieldLabel}: { inputFieldLabel: string }) {
     return (
         <div className="flex flex-col items-start gap-1 font-bold">
             <label htmlFor="password" className="px-3">
@@ -30,7 +32,7 @@ export function InputFieldPassword({ inputFieldLabel }:{ inputFieldLabel: string
     );
 }
 
-export function Carousel({ title}: { title: string }) {
+export function Carousel({title}: { title: string }) {
     return (
         <section className="flex flex-col gap-3 items-start w-full
         font-bold">
@@ -46,7 +48,7 @@ export function Carousel({ title}: { title: string }) {
     );
 }
 
-export function TopNavBar({ returnLink }: {returnLink:string }) {
+export function TopNavBar({returnLink}: { returnLink: string }) {
     return (
         <nav className="flex px-5 pt-7 sticky top-0 bg-white z-20">
             <Link className="py-3" href={returnLink}>
@@ -100,8 +102,10 @@ export function BottomNavBar() {
     );
 }
 
-export function ProfilePicture({width, imageSrc}: { width: string,
-    imageSrc: string }) {
+export function ProfilePicture({width, imageSrc}: {
+    width: string,
+    imageSrc: string
+}) {
     let verifiedSize = "0";
     if (width === "w-40") {
         verifiedSize = "2"
@@ -138,9 +142,11 @@ export function ProfileName({textSize}: { textSize: string }) {
     );
 }
 
-function Message({ name, unread, hasBorder}:
-                            { name: string, unread: boolean,
-                            hasBorder: boolean}) {
+function Message({name, unread, hasBorder}:
+                     {
+                         name: string, unread: boolean,
+                         hasBorder: boolean
+                     }) {
     let border = "";
     if (hasBorder) {
         border = "border-t-1"
@@ -157,7 +163,7 @@ function Message({ name, unread, hasBorder}:
                     alt="Profile Icon"
                 />
                 {/* Message Icon */}
-                { unread ? (
+                {unread ? (
                     <div className="absolute p-2 bottom-0 right-0
                                     bg-[#FB4E00] rounded-full">
                     </div>
@@ -175,21 +181,23 @@ function Message({ name, unread, hasBorder}:
 export function Messages() {
     return (
         <div className="w-full border-t-1 border-b-1">
-            <Message name="Thomas" unread={false} hasBorder={false} />
-            <Message name="Kristine" unread={true} hasBorder={true} />
-            <Message name="Lars" unread={true} hasBorder={true} />
-            <Message name="Tove" unread={true} hasBorder={true} />
-            <Message name="Elias" unread={false} hasBorder={true} />
-            <Message name="Peder" unread={false} hasBorder={true} />
-            <Message name="Julie" unread={true} hasBorder={true} />
-            <Message name="Karoline" unread={true} hasBorder={true} />
+            <Message name="Thomas" unread={false} hasBorder={false}/>
+            <Message name="Kristine" unread={true} hasBorder={true}/>
+            <Message name="Lars" unread={true} hasBorder={true}/>
+            <Message name="Tove" unread={true} hasBorder={true}/>
+            <Message name="Elias" unread={false} hasBorder={true}/>
+            <Message name="Peder" unread={false} hasBorder={true}/>
+            <Message name="Julie" unread={true} hasBorder={true}/>
+            <Message name="Karoline" unread={true} hasBorder={true}/>
         </div>
     );
 }
 
-function ChatMessage({ message, isSender, isReplying }:
-                                { message: string, isSender: boolean,
-                                isReplying: boolean}) {
+function ChatMessage({message, isSender, isReplying}:
+                         {
+                             message: string, isSender: boolean,
+                             isReplying: boolean
+                         }) {
     let sendMessage = "justify-start";
     let messageColor = "bg-[#FF986A]";
     let marginTop = "mt-1";
@@ -293,6 +301,200 @@ export function ChatConversation() {
                 isSender={false}
                 isReplying={true}
             />
+        </div>
+    );
+}
+
+export function ActivityDialog({setActivityAction, hasLiked, setLikeAction,
+                               likes, setLikesAction, openLikesAction}:
+                                   {
+                                       setActivityAction:
+                                           Dispatch<SetStateAction<boolean>>,
+                                       hasLiked: boolean, setLikeAction:
+                                           Dispatch<SetStateAction<boolean>>,
+                                       likes: number, setLikesAction:
+                                           Dispatch<SetStateAction<number>>,
+                                       openLikesAction: () => void
+                                   }) {
+    function like() {
+        setLikeAction(true);
+        setLikesAction(likes + 1);
+    }
+
+    function unlike() {
+        setLikeAction(false);
+        setLikesAction(likes - 1);
+    }
+
+    return (
+        <div className="absolute inset-0 bg-black/50
+                            flex justify-center items-center">
+            <div className="flex flex-col gap-5 bg-white w-80 h-96">
+                <div className="grid grid-cols-5">
+                    <div onClick={() => setActivityAction(false)}
+                         className="p-5 cursor-pointer">
+                        <Image
+                            src="/map/close_icon.svg"
+                            width={21}
+                            height={21}
+                            alt="Close Icon"
+                        />
+                    </div>
+                    <div className="col-span-3 flex
+                                        justify-center items-center text-3xl">
+                        <h1>City Hike 🌿</h1>
+                    </div>
+                </div>
+                <div className="flex px-5 justify-between items-center text-lg">
+                    <h1>Saturday<br/>10:00 AM</h1>
+                    <h1>Ametyst-atriet</h1>
+                </div>
+                <div className="text-left px-5 font-normal ">
+                    <p>A chill weekend hike just outside the city 🌿
+                        Easy trail, good company, and a picnic at the top — come
+                        enjoy nature and meet new people!</p>
+                </div>
+                <div className="flex gap-2 w-full px-5 font-normal">
+                    <div className="inline-block">
+                        <Interest interestName="Nature"/>
+                    </div>
+                    <div className="inline-block">
+                        <Interest interestName="Sports"/>
+                    </div>
+                </div>
+                <div className="flex gap-1 h-full pl-5">
+                    <div className="flex items-center gap-3 w-full">
+                        <Image className={`w-1/6 rounded-full`}
+                               src="/jonas2.jpg"
+                               width={1080}
+                               height={1080}
+                               alt="Picture of Jonas"
+                        />
+                        <div className="flex items-end grow">
+                            <h1>Jonas Lund</h1>
+                        </div>
+                    </div>
+                    {
+                        hasLiked ?
+                            <div onClick={() => unlike()}
+                                 className="flex cursor-pointer">
+                                <Image
+                                    src="/map/liked_icon.svg"
+                                    width={33}
+                                    height={30}
+                                    alt="Liked Icon"
+                                />
+                            </div>
+                            :
+                            <div onClick={() =>  like()}
+                                 className="flex cursor-pointer">
+                                <Image
+                                    src="/create-activity/favorite_icon.svg"
+                                    width={33}
+                                    height={30}
+                                    alt="Liked Icon"
+                                />
+                            </div>
+                    }
+                    <div onClick={() => openLikesAction()}
+                        className="flex items-center text-[#FF986A] pr-5
+                    cursor-pointer">
+                        <h1>{likes}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function LikesDialog({ closeLikesAction, hasLiked }:
+                                { closeLikesAction: () => void,
+                                hasLiked: boolean}) {
+    return (
+        <div className="absolute inset-0 bg-black/50
+                            flex justify-center items-center">
+            <div className="flex flex-col bg-white w-80 h-96">
+                <div className="grid grid-cols-5">
+                    <div onClick={() => closeLikesAction()}
+                         className="p-5 cursor-pointer">
+                        <Image
+                            src="/arrow.svg"
+                            width={42}
+                            height={23}
+                            alt="Navigation Arrow"
+                        />
+                    </div>
+                    <div className="col-span-3 flex
+                                        justify-center items-center text-3xl">
+                        <h1>Liked by</h1>
+                    </div>
+                </div>
+                <div className="flex flex-col gap-3 h-full px-5 py-5
+                overflow-y-auto">
+                    <DialogUser
+                        imageSrc="/thomas.jpg"
+                        imageWidth={1080}
+                        imageHeight={1080}
+                        imageAlt="Picture of Thomas Berg"
+                        userName="Thomas Berg"
+                    />
+                    <DialogUser
+                        imageSrc="/ingrid.jpg"
+                        imageWidth={1080}
+                        imageHeight={1080}
+                        imageAlt="Picture of Ingrid Johansen"
+                        userName="Ingrid Johansen"
+                    />
+                    <DialogUser
+                        imageSrc="/kristine.jpg"
+                        imageWidth={1080}
+                        imageHeight={1080}
+                        imageAlt="Picture of Kristine Nilsen"
+                        userName="Kristine Nilsen"
+                    />
+                    <DialogUser
+                        imageSrc="/lars.jpg"
+                        imageWidth={1080}
+                        imageHeight={1080}
+                        imageAlt="Picture of Lars Andersen"
+                        userName="Lars Andersen"
+                    />
+                    <DialogUser
+                        imageSrc="/tove.jpg"
+                        imageWidth={1048}
+                        imageHeight={1048}
+                        imageAlt="Picture of Tove Hansen"
+                        userName="Tove Hansen"
+                    />
+                    { hasLiked && (
+                        <DialogUser
+                            imageSrc="/jonas2.jpg"
+                            imageWidth={1080}
+                            imageHeight={1080}
+                            imageAlt="Picture of Jonas Lund"
+                            userName="Jonas Lund"
+                        />
+                    ) }
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function DialogUser({ imageSrc, imageWidth, imageHeight, imageAlt,
+                           userName }: { imageSrc: string, imageWidth: number,
+    imageHeight: number, imageAlt: string, userName: string}) {
+    return (
+        <div className="flex items-center gap-3 w-full">
+            <Image className={`w-1/6 rounded-full`}
+                   src={imageSrc}
+                   width={imageWidth}
+                   height={imageHeight}
+                   alt={imageAlt}
+            />
+            <div className="flex items-end grow">
+                <h1>{userName}</h1>
+            </div>
         </div>
     );
 }

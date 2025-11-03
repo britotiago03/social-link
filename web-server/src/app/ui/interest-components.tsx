@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-function Interest({ interestName }: { interestName: string }) {
+export function Interest({ interestName }: { interestName: string }) {
     return (
         <div className="bg-[#FF986A] px-2 rounded-full">
             <p>{interestName}</p>

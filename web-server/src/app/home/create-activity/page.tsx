@@ -14,14 +14,14 @@ export default function CreateActivityPage() {
                 <main className="flex flex-col
                 items-center py-10 px-5 gap-10 text-[#050022] text-center
                 w-full md:w-1/3">
-                    <div className="flex gap-3 w-full">
+                    <div className="flex items-center gap-3 w-full text-2xl">
                         <Image className={`w-24 rounded-full`}
                                src="/jonas2.jpg"
                                width={1080}
                                height={1080}
                                alt="Picture of Jonas"
                         />
-                        <div className="flex items-end pb-2 grow">
+                        <div className="flex items-end grow">
                             <h1>Jonas Lund</h1>
                         </div>
                     </div>
