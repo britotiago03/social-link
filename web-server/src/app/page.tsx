@@ -18,9 +18,9 @@ export default function Home() {
           </form>
 
         </div>
-        <div className="flex flex-col gap-1">
-          <Link href="/" className="p-3">
-            <button className="text-xl cursor-pointer"><b>LOGIN</b></button>
+        <div className="flex flex-col gap-1 font-bold">
+          <Link href={"/home"} className="p-3">
+            <button className="text-xl cursor-pointer">LOGIN</button>
           </Link>
 
           <Link href={"/forgot-password"}>
@@ -28,8 +28,8 @@ export default function Home() {
             font-extralight">Forgot Password?</button>
           </Link>
         </div>
-        <div className="flex gap-1">
-          <label><b>Don't have an account?</b></label>
+        <div className="flex gap-1 font-bold">
+          <label>Don't have an account?</label>
           <Link href={"/signup"}>
             <button className="cursor-pointer font-extralight">Sign up</button>
           </Link>

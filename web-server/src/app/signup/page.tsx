@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { roboto } from "@/app/ui/fonts";
-import { InputFieldText, InputFieldPassword } from "@/app/ui/components";
+import { InputFieldText, InputFieldPassword, NavBar } from "@/app/ui/components";
 
 export default function Signup() {
   const start = new Date().getFullYear();
@@ -11,20 +10,12 @@ export default function Signup() {
 
   return (
       <div>
-        <nav className="flex px-5 pt-7">
-          <Link className="py-3" href={"/"}>
-            <Image src="/arrow.svg"
-                   width={42}
-                   height={23}
-                   alt="Navigation arrow"
-            />
-          </Link>
-        </nav>
+        <NavBar returnLink="/" />
         <main className={`${roboto.className} flex flex-col min-h-full gap-20
-        overflow-hidden
+        font-bold
         items-center justify-around p-10 gap-3 text-[#050022] text-center`}>
           <div className="flex flex-col gap-20">
-            <h1 className="text-[#FB4E00] text-3xl"><b>Sign up</b></h1>
+            <h1 className="text-[#FB4E00] text-3xl">Sign up</h1>
 
             <form className="flex flex-col gap-5">
               <InputFieldText inputFieldId="firstname"
@@ -36,8 +27,8 @@ export default function Signup() {
 
               <div className="flex flex-col items-start gap-1">
                 <label htmlFor="birthday" className="px-3">
-                  <b>BIRTHDAY</b></label>
-                <div className="flex w-80 gap-3">
+                  BIRTHDAY</label>
+                <div className="flex w-80 gap-3 font-normal">
                   <select id="month"
                           className="bg-[#D9D9D9] rounded-2xl p-3 w-1/3
                         inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)]">
@@ -76,19 +67,25 @@ export default function Signup() {
 
               <div className="flex flex-col items-start gap-1">
                 <label className="px-3">
-                  <b>GENDER</b></label>
-                <fieldset className="flex gap-3 w-80">
+                  GENDER</label>
+                <fieldset className="flex gap-3 w-80 font-normal">
                   <label htmlFor="female"
                          className="flex justify-between gap-3 bg-[#D9D9D9]
                          rounded-2xl p-3
-                         inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)] w-1/2">Female
+                         inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)] w-1/3">Female
                     <input id="female" type="radio" name="gender"/>
                   </label>
                   <label htmlFor="male"
                          className="flex justify-between gap-3 bg-[#D9D9D9]
                          rounded-2xl p-3
-                         inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)] w-1/2">Male
+                         inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)] w-1/3">Male
                     <input id="male" type="radio" name="gender"/>
+                  </label>
+                  <label htmlFor="other"
+                         className="flex justify-between gap-3 bg-[#D9D9D9]
+                         rounded-2xl p-3
+                         inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)] w-1/3">Other
+                    <input id="other" type="radio" name="gender"/>
                   </label>
 
                 </fieldset>
@@ -97,7 +94,7 @@ export default function Signup() {
 
               <div className="flex flex-col items-start gap-1">
                 <label htmlFor="email" className="px-3">
-                  <b>EMAIL</b></label>
+                  EMAIL</label>
                 <input id="email" type="email"
                        className="bg-[#D9D9D9] rounded-2xl p-3 w-80
                      inset-shadow-[0px_-5px_4px_rgba(0,0,0,0.25)]"
@@ -109,8 +106,8 @@ export default function Signup() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <Link href="/" className="p-3">
-              <button className="text-xl cursor-pointer"><b>SIGN UP</b></button>
+            <Link href={"/home"} className="p-3">
+              <button className="text-xl cursor-pointer">SIGN UP</button>
             </Link>
           </div>
         </main>
