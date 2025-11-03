@@ -45,8 +45,8 @@ export default function ProfilePage() {
                         </section>
                     </div>
                 </main>
-                <Link href={"/"}>
-                    <button className="text-xl my-10">Log out</button>
+                <Link href={"/"} className="p-2 my-10">
+                    <button className="text-xl cursor-pointer">Log out</button>
                 </Link>
             </div>
         </div>

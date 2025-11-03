@@ -26,13 +26,14 @@ export default function ChatPage() {
                     </Link>
                 </div>
                 <div className="flex justify-center col-span-3 mt-10">
-                    <div className="flex flex-col gap-1 items-center w-full">
-                        <div className="bg-[#6E0061] p-2 w-1/5 md:w-1/13 rounded-full">
-                            <Image
-                                src="/profile_icon.svg"
-                                width={91}
-                                height={91}
-                                alt="Profile Icon"
+                    <div className="flex flex-col gap-1 items-center
+                    w-full font-bold">
+                        <div className="w-1/5 md:w-1/13">
+                            <Image className="rounded-full"
+                                src="/thomas.jpg"
+                                width={1080}
+                                height={1080}
+                                alt="Image of Thomas"
                             />
                         </div>
                         <h1>Thomas</h1>

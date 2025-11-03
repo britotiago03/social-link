@@ -142,10 +142,12 @@ export function ProfileName({textSize}: { textSize: string }) {
     );
 }
 
-function Message({name, unread, hasBorder}:
+function Message({imageSrc, imageWidth, imageHeight, imageAlt,
+                     name, unread, hasBorder}:
                      {
-                         name: string, unread: boolean,
-                         hasBorder: boolean
+                         imageSrc: string, imageWidth: number,
+                         imageHeight: number, imageAlt: string,
+                         name: string, unread: boolean, hasBorder: boolean
                      }) {
     let border = "";
     if (hasBorder) {
@@ -154,13 +156,12 @@ function Message({name, unread, hasBorder}:
 
     return (
         <div className={`flex gap-7 px-10 py-4 ${border}`}>
-            <div className="relative bg-[#6E0061] p-2 w-1/7
-                                rounded-full">
-                <Image
-                    src="/profile_icon.svg"
-                    width={91}
-                    height={91}
-                    alt="Profile Icon"
+            <div className="relative w-1/7">
+                <Image className="rounded-full"
+                    src={imageSrc}
+                    width={imageWidth}
+                    height={imageHeight}
+                    alt={imageAlt}
                 />
                 {/* Message Icon */}
                 {unread ? (
@@ -181,14 +182,54 @@ function Message({name, unread, hasBorder}:
 export function Messages() {
     return (
         <div className="w-full border-t-1 border-b-1">
-            <Message name="Thomas" unread={false} hasBorder={false}/>
-            <Message name="Kristine" unread={true} hasBorder={true}/>
-            <Message name="Lars" unread={true} hasBorder={true}/>
-            <Message name="Tove" unread={true} hasBorder={true}/>
-            <Message name="Elias" unread={false} hasBorder={true}/>
-            <Message name="Peder" unread={false} hasBorder={true}/>
-            <Message name="Julie" unread={true} hasBorder={true}/>
-            <Message name="Karoline" unread={true} hasBorder={true}/>
+            <Message
+                imageSrc="/thomas.jpg"
+                imageWidth={1080}
+                imageHeight={1080}
+                imageAlt="Picture of Thomas Berg"
+                name="Thomas Berg" unread={false} hasBorder={false}/>
+            <Message
+                imageSrc="/kristine.jpg"
+                imageWidth={1080}
+                imageHeight={1080}
+                imageAlt="Picture of Kristine Nilsen"
+                name="Kristine Nilsen" unread={true} hasBorder={true}/>
+            <Message
+                imageSrc="/lars.jpg"
+                imageWidth={1080}
+                imageHeight={1080}
+                imageAlt="Picture of Lars Andersen"
+                name="Lars Andersen" unread={true} hasBorder={true}/>
+            <Message
+                imageSrc="/tove.jpg"
+                imageWidth={1048}
+                imageHeight={1048}
+                imageAlt="Picture of Tove Hansen"
+                name="Tove Hansen" unread={true} hasBorder={true}/>
+            <Message
+                imageSrc="/elias.jpg"
+                imageWidth={828}
+                imageHeight={828}
+                imageAlt="Picture of Elias Haugen"
+                name="Elias Haugen" unread={false} hasBorder={true}/>
+            <Message
+                imageSrc="/peder.jpg"
+                imageWidth={497}
+                imageHeight={497}
+                imageAlt="Picture of Peder Olsen"
+                name="Peder Olsen" unread={false} hasBorder={true}/>
+            <Message
+                imageSrc="/julie.jpg"
+                imageWidth={720}
+                imageHeight={720}
+                imageAlt="Picture of Julie Solberg"
+                name="Julie Solberg" unread={true} hasBorder={true}/>
+            <Message
+                imageSrc="/karoline.jpg"
+                imageWidth={1080}
+                imageHeight={1080}
+                imageAlt="Picture of Karoline Moen"
+                name="Karoline Moen" unread={true} hasBorder={true}/>
         </div>
     );
 }
