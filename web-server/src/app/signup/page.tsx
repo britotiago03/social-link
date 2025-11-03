@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { roboto } from "@/app/ui/fonts";
-import { InputFieldText, InputFieldPassword, NavBar } from "@/app/ui/components";
+import { InputFieldText, InputFieldPassword, TopNavBar } from "@/app/ui/components";
 
-export default function Signup() {
+export default function SignupPage() {
   const start = new Date().getFullYear();
   const end = 1905;
   const years = Array.from({ length: start - end + 1},
@@ -12,7 +12,7 @@ export default function Signup() {
 
   return (
       <div className="min-h-screen">
-        <NavBar returnLink="/" />
+        <TopNavBar returnLink="/" />
         <main className={`${roboto.className} flex flex-col gap-20
         font-bold
         items-center justify-around p-10 gap-3 text-[#050022] text-center`}>

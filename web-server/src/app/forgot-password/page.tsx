@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { roboto } from "@/app/ui/fonts";
-import { NavBar } from "@/app/ui/components";
+import { TopNavBar } from "@/app/ui/components";
 
-export default function ForgotPassword() {
+export default function ForgotPasswordPage() {
 
   return (
       <div className="min-h-screen">
-        <NavBar returnLink="/" />
+        <TopNavBar returnLink="/" />
         <main className={`${roboto.className} flex flex-col gap-20
         font-bold items-center p-10 gap-3 text-[#050022]
         text-center`}>

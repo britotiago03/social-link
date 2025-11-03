@@ -1,14 +1,14 @@
 "use client";
 
-import { NavBar } from "@/app/ui/components";
+import { TopNavBar } from "@/app/ui/components";
 import { InterestsGrid } from "@/app/ui/interest-components";
 import {roboto} from "@/app/ui/fonts";
 import Image from "next/image";
 
-export default function Interests() {
+export default function InterestsPage() {
     return (
         <div>
-            <NavBar returnLink="/home/profile" />
+            <TopNavBar returnLink="/home/profile" />
             <div className={`${roboto.className} flex flex-col items-center
             font-bold`}>
                 <main className="flex flex-col

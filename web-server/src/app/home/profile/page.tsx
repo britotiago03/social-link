@@ -1,14 +1,14 @@
 "use client";
 
-import { NavBar, ProfilePicture, ProfileName, } from "@/app/ui/components";
+import { TopNavBar, ProfilePicture, ProfileName, } from "@/app/ui/components";
 import { Interests } from "@/app/ui/interest-components";
 import {roboto} from "@/app/ui/fonts";
 import Link from "next/link";
 
-export default function Profile() {
+export default function ProfilePage() {
     return (
         <div className="min-h-screen">
-            <NavBar returnLink="/home" />
+            <TopNavBar returnLink="/home" />
             <div className={`${roboto.className} flex flex-col items-center
             font-bold`}>
                 <main className="flex flex-col

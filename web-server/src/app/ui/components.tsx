@@ -46,7 +46,7 @@ export function Carousel({ title}: { title: string }) {
     );
 }
 
-export function NavBar({ returnLink }: {returnLink:string }) {
+export function TopNavBar({ returnLink }: {returnLink:string }) {
     return (
         <nav className="flex px-5 pt-7 sticky top-0 bg-white z-20">
             <Link className="py-3" href={returnLink}>
@@ -60,15 +60,55 @@ export function NavBar({ returnLink }: {returnLink:string }) {
     );
 }
 
-export function ProfilePicture({ width }: { width: string}) {
+export function BottomNavBar() {
+    return (
+        <nav className="flex justify-center gap-10 p-5 sticky bottom-0
+            bg-white">
+            <Link href={"/home/match"}>
+                <Image
+                    src="/match_icon.svg"
+                    width={43}
+                    height={43}
+                    alt="Match Icon"
+                />
+            </Link>
+            <Link href={"/"}>
+                <Image
+                    src="/create_activity_icon.svg"
+                    width={44}
+                    height={42}
+                    alt="Create Activity Icon"
+                />
+            </Link>
+            <Link href={"/home"}>
+                <Image
+                    src="/home_icon.svg"
+                    width={41}
+                    height={43}
+                    alt="Home Icon"
+                />
+            </Link>
+            <Link href={"/"}>
+                <Image
+                    src="/map_icon.svg"
+                    width={43}
+                    height={43}
+                    alt="Map Icon"
+                />
+            </Link>
+        </nav>
+    );
+}
+
+export function ProfilePicture({width}: { width: string }) {
     return (
         <div className="relative
                         bg-[#6E0061] p-5 rounded-full">
             <Image className={`${width}`}
-                src="/profile_icon.svg"
-                width={91}
-                height={91}
-                alt="Profile Icon"
+                   src="/profile_icon.svg"
+                   width={91}
+                   height={91}
+                   alt="Profile Icon"
             />
             {/* Verified Icon */}
             <div className="absolute p-4 bottom-1 left-1
@@ -84,7 +124,7 @@ export function ProfilePicture({ width }: { width: string}) {
     );
 }
 
-export function ProfileName({ textSize }: {textSize:string}) {
+export function ProfileName({textSize}: { textSize: string }) {
     return (
         <div className={`flex gap-3 border-b-1 font-bold ${textSize}`}>
             <h1>FIRSTNAME</h1>

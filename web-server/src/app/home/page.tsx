@@ -3,7 +3,8 @@
 import {roboto} from "@/app/ui/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import { Carousel, ProfilePicture, ProfileName } from "@/app/ui/components";
+import { Carousel, ProfilePicture, ProfileName,
+    BottomNavBar } from "@/app/ui/components";
 import { Interests } from "@/app/ui/interest-components";
 
 export default function HomePage() {
@@ -47,41 +48,7 @@ export default function HomePage() {
 
                 </main>
             </div>
-            <nav className="flex justify-center gap-10 p-5 sticky bottom-0
-            bg-white">
-                <Link href={"/"}>
-                    <Image
-                        src="/match_icon.svg"
-                        width={43}
-                        height={43}
-                        alt="Match Icon"
-                    />
-                </Link>
-                <Link href={"/"}>
-                    <Image
-                        src="/create_activity_icon.svg"
-                        width={44}
-                        height={42}
-                        alt="Create Activity Icon"
-                    />
-                </Link>
-                <Link href={"/"}>
-                    <Image
-                        src="/home_icon.svg"
-                        width={41}
-                        height={43}
-                        alt="Home Icon"
-                    />
-                </Link>
-                <Link href={"/"}>
-                    <Image
-                        src="/map_icon.svg"
-                        width={43}
-                        height={43}
-                        alt="Map Icon"
-                    />
-                </Link>
-            </nav>
+            <BottomNavBar />
         </div>
     );
 }
