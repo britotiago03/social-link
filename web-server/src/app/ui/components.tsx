@@ -419,7 +419,8 @@ export function ActivityDialog({setActivityAction, hasLiked, setLikeAction,
                         {
                             hasLiked ?
                                 <div onClick={() => unlike()}
-                                     className="flex cursor-pointer h-full">
+                                     className="flex cursor-pointer items-center
+                                     h-full">
                                     <Image
                                         src="/map/liked_icon.svg"
                                         width={33}
@@ -429,7 +430,8 @@ export function ActivityDialog({setActivityAction, hasLiked, setLikeAction,
                                 </div>
                                 :
                                 <div onClick={() =>  like()}
-                                     className="flex cursor-pointer h-full">
+                                     className="flex cursor-pointer items-center
+                                     h-full">
                                     <Image
                                         src="/create-activity/favorite_icon.svg"
                                         width={33}
@@ -440,7 +442,7 @@ export function ActivityDialog({setActivityAction, hasLiked, setLikeAction,
                         }
                         <div onClick={() => openLikesAction()}
                              className="flex items-center text-[#FF986A] h-full pr-5
-                    cursor-pointer">
+                             cursor-pointer">
                             <h1>{likes}</h1>
                         </div>
                     </div>
