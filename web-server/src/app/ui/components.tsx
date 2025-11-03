@@ -88,7 +88,7 @@ export function BottomNavBar() {
                     alt="Home Icon"
                 />
             </Link>
-            <Link href={"/"}>
+            <Link href={"/home/map"}>
                 <Image
                     src="/map_icon.svg"
                     width={43}
