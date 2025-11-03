@@ -1,13 +1,7 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-
-function Interest({ interestName }: { interestName: string }) {
-    return (
-        <div className="bg-[#FF986A] px-2 rounded-full">
-            <p>{interestName}</p>
-        </div>
-    );
-}
 
 export function InputFieldText({ inputFieldId, inputFieldLabel }:
                                { inputFieldId: string, inputFieldLabel: string }) {
@@ -95,21 +89,6 @@ export function ProfileName({ textSize }: {textSize:string}) {
         <div className={`flex gap-3 border-b-1 font-bold ${textSize}`}>
             <h1>FIRSTNAME</h1>
             <h1>LASTNAME</h1>
-        </div>
-    );
-}
-
-export function Interests({ textSize }: {textSize: string}) {
-    return (
-        <div className={`flex gap-2 flex-wrap ${textSize} font-normal`}>
-            <Interest interestName="Sports"/>
-            <Interest interestName="Music"/>
-            <Interest interestName="Study Groups"/>
-            <Interest interestName="Arts & Crafts"/>
-            <Interest interestName="Movies & TV"/>
-            <Interest interestName="Games"/>
-            <Interest interestName="Nature"/>
-            <Interest interestName="Board Games"/>
         </div>
     );
 }

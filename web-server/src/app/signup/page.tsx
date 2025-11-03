@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { roboto } from "@/app/ui/fonts";
 import { InputFieldText, InputFieldPassword, NavBar } from "@/app/ui/components";
@@ -9,9 +11,9 @@ export default function Signup() {
       (_, i) => start - i);
 
   return (
-      <div>
+      <div className="min-h-screen">
         <NavBar returnLink="/" />
-        <main className={`${roboto.className} flex flex-col min-h-full gap-20
+        <main className={`${roboto.className} flex flex-col gap-20
         font-bold
         items-center justify-around p-10 gap-3 text-[#050022] text-center`}>
           <div className="flex flex-col gap-20">

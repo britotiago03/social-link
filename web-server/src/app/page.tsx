@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { roboto, imprima } from "@/app/ui/fonts";
 import { InputFieldText, InputFieldPassword } from "@/app/ui/components";

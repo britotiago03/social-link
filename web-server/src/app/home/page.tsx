@@ -1,14 +1,16 @@
+"use client";
+
 import {roboto} from "@/app/ui/fonts";
 import Image from "next/image";
 import Link from "next/link";
-import { Carousel, ProfilePicture,
-    ProfileName, Interests } from "@/app/ui/components";
+import { Carousel, ProfilePicture, ProfileName } from "@/app/ui/components";
+import { Interests } from "@/app/ui/interest-components";
 
 export default function HomePage() {
     return (
-        <div>
+        <div className="min-h-screen">
             <div className="flex flex-col items-center">
-                <main className={`${roboto.className} flex flex-col min-h-screen
+                <main className={`${roboto.className} flex flex-col
                 items-center py-15 px-5 gap-10 text-[#050022] text-center
                 w-full md:w-1/3`}>
                     {/* Profile Section */}

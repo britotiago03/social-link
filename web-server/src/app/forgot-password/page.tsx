@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { roboto } from "@/app/ui/fonts";
 import { NavBar } from "@/app/ui/components";
@@ -5,10 +7,10 @@ import { NavBar } from "@/app/ui/components";
 export default function ForgotPassword() {
 
   return (
-      <div>
+      <div className="min-h-screen">
         <NavBar returnLink="/" />
-        <main className={`${roboto.className} flex flex-col min-h-full gap-20
-        font-bold items-center justify-around p-10 gap-3 text-[#050022]
+        <main className={`${roboto.className} flex flex-col gap-20
+        font-bold items-center p-10 gap-3 text-[#050022]
         text-center`}>
           <div className="flex flex-col gap-20">
             <h1 className="text-[#FB4E00] text-3xl">Forgot password?</h1>
