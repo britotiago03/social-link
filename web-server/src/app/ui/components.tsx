@@ -132,3 +132,52 @@ export function ProfileName({textSize}: { textSize: string }) {
         </div>
     );
 }
+
+function Message({ name, unread, hasBorder}:
+                            { name: string, unread: boolean,
+                            hasBorder: boolean}) {
+    let border = "";
+    if (hasBorder) {
+        border = "border-t-1"
+    }
+
+    return (
+        <div className={`flex gap-7 px-10 py-4 ${border}`}>
+            <div className="relative bg-[#6E0061] p-2 w-1/7
+                                rounded-full">
+                <Image
+                    src="/profile_icon.svg"
+                    width={91}
+                    height={91}
+                    alt="Profile Icon"
+                />
+                {/* Message Icon */}
+                { unread ? (
+                    <div className="absolute p-2 bottom-0 right-0
+                                    bg-[#FB4E00] rounded-full">
+                    </div>
+                ) : (
+                    <div></div>
+                )}
+            </div>
+            <div className="text-lg">
+                <h1>{name}</h1>
+            </div>
+        </div>
+    );
+}
+
+export function Messages() {
+    return (
+        <div className="w-full border-t-1 border-b-1">
+            <Message name="Thomas" unread={false} hasBorder={false} />
+            <Message name="Kristine" unread={true} hasBorder={true} />
+            <Message name="Lars" unread={true} hasBorder={true} />
+            <Message name="Tove" unread={true} hasBorder={true} />
+            <Message name="Elias" unread={false} hasBorder={true} />
+            <Message name="Peder" unread={false} hasBorder={true} />
+            <Message name="Julie" unread={true} hasBorder={true} />
+            <Message name="Karoline" unread={true} hasBorder={true} />
+        </div>
+    );
+}

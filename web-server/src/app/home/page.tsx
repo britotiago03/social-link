@@ -30,12 +30,14 @@ export default function HomePage() {
                             <ProfileName textSize="text-base"/>
                             <Interests textSize="text-xs" />
                             <div className="flex justify-end">
-                                <Image
-                                    src="/chat_icon.svg"
-                                    width={30}
-                                    height={30}
-                                    alt="Chat Icon"
-                                />
+                                <Link href={"/home/chats"}>
+                                    <Image
+                                        src="/chat_icon.svg"
+                                        width={30}
+                                        height={30}
+                                        alt="Chat Icon"
+                                    />
+                                </Link>
                             </div>
                         </div>
                     </div>
